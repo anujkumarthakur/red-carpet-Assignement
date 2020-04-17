@@ -1,4 +1,4 @@
-                             --------Interview Stage 1--------
+                        ----------------Interview Stage 1-----------------
         create a new table in postgres and load this CSV that denotes the mapping between pincode and lat/long 
         (https://github.com/sanand0/pincode/blob/master/data/IN.csv).
 
@@ -46,3 +46,19 @@
                         "accuracy":""
                     }
 
+                  ---------------------Interview Stage 2------------------------
+        You will write the following functionality : Given a location, fetch all the nearby pin codes 
+        within a radius. For example, I can ask - give me all points within 5km radius of (45.12, 71.12) .
+ 
+        To do this you will need to do mathematical computation of radius. 
+        there are two ways to do this. So you will create two different api:
+        1.  /get_using_postgres - You can use postgres "earthdistance" to compute all points in 5km radius
+        2. /get_using_self - Implement the mathematical computation yourself.  
+ 
+        Write testcases using Pytest. Importantly, test+compare results between /get_using_postgres and /get_using_self.
+ 
+        Answer-2:
+        I have choosed second option and solved by Haversign formula
+
+        example - :
+                    localhost:5000/radius/lat1/long2/<int:5 or 6 or etc..>
