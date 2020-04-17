@@ -30,10 +30,10 @@
                 export DBNAME="database-name"
                 
                 python3 main.py
-
-       step-6: ./run_script
+       step-6: chmod +x run_script.sh
+       step-7: ./run_script
        
-       step-7: you can try to use postman
+       step-8: you can try to use postman
                example-ubuntu terminal-:
                 GET   curl localhost:5000/get_location/lat/long 
                 POST  curl localhost:5000/post_location
