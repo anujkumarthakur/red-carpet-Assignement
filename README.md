@@ -62,3 +62,23 @@
 
         example - :
                     localhost:5000/radius/lat1/long2/<int:5 or 6 or etc..>
+
+                        --------Interview Stage 3--------
+        a Geojson is a json file which defines shapes of locations - for example the shape of delhi, gurgaon, etc.
+ 
+        https://gist.github.com/ramsingla/6202001?short_path=7d9a995 - This geojson is used to define delhi and its areas.
+        NOTE: you can check it out by going to http://geojson.io and pasting the raw json on the right side (on tab marked JSON).
+ 
+        Write code to parse this json, and load the boundaries latitude and longitude (geometry -> coordinates) 
+        into postgresql in a new table. IMPORTANT: you can use any database/table structure ... but remember that
+        one place (like "Delhi") will have lots of lat/long (because it marks the boundaries).
+        Write a new API "/detect" : It will take input as latitude + longitude, it will tell you which place it falls within.
+
+        Answer-3:
+        I Wrote seperate read.py and json_read.sh file
+        in this repo there are two .sh binary file you just open two terminal and run
+        terminal- ./run_script
+        terminal- ./json_read
+        example-:
+            localhost:5000/detect/{lat}/{long}
+
