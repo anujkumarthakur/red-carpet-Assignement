@@ -73,6 +73,23 @@ def GetLocation(lat, long):
         cursor.close()
         conn.close()
 
+@app.route('/detect/<float:lat>/<float:long>', methods=['GET'])
+def Detectfalls(lat, long):
+    try:
+        conn = conn = DbConfig()
+        cursor = conn.cursor()
+        sql = "SELECT city_name, type, parent_city, city_shape from location WHERE latitude=%s and longitude=%s"
+        cursor.execute(sql, (lat, long))
+        row = cursor.fetchone()
+        resp = jsonify(row)
+        resp.status_code = 200
+        return resp
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+
 #haversone algorithm for calculate distnace betweeen two earth point
 @app.route('/radius/<float:lat1>/<float:long1>/<int:distance>', methods=['GET'])
 def Radius(lat1,long1, distance):
